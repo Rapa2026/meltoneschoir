@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="data:,">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Mel</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #18e639;
+            font-family: Georgia, serif;
+            text-align: center;
+        }
+        h1 {
+            color: #000019;
+            font-family: Trebuchet MS sans-serif;
+            font-size: 80px;
+            font-weight: bold;
+            text-shadow: 4px 4px 4px rgb(80, 80, 80, 1);
+            z-index: 5;
+            position: relative;
+            margin-top: -70px;
+            margin-bottom: 5px;
+        }
+        h2 {
+            font-size: 35px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .mel-but {
+            padding: 14px 18px;
+            font-size: 18px;
+            background: #000019;
+            z-index: 1;
+            position: relative;
+            color: deeppink;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            margin-left: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-family: Georgia, serif;
+        }
+        .mel-but:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+        .mel-heading {
+            text-decoration: underline;
+            font-weight: 777;
+            text-underline-offset: 4px;
+        }
+        .notes-bar {
+                width: 100%;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+            .notes-bar img {
+                width: 100%;
+                height: 100vh;
+                display: block;
+                opacity: 0.1;
+                z-index: 1;
+                position: fixed;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+            }
+            .mel-gal {
+                margin: 10px auto 10px auto;
+                max-width: 600px;
+                width: 100%;
+                display: block;
+                border: 8px solid #ddd;
+                border-radius: 12px;
+                z-index: 999;
+                position: relative;
+            }
+            .Mel-job {
+                font-family: Georgia, serif;
+                font-size: 18px;
+                letter-spacing: 3px;
+                line-height: 1.4;
+                color: #02023c;
+                max-width: 700px;
+                padding: 40px;
+                background: #dddddd;
+                z-index: 1;
+                position: relative;
+                width: 100%;
+                margin: 50px auto;
+                text-align: left;
+                display: block;
+                text-transform: none;
+                text-shadow: none;
+                font-weight: 540;
+                border-radius: 12px;
+            }
+            .badge {
+                position: sticky;
+                width: 100px;
+                height: 80px;
+                z-index: 9999;
+                border: 2px solid white;
+                border-radius: 12px;
+                opacity: 1;
+            }
+            footer {
+                background-color: rgba(0, 0, 25, 0.5);
+                color: white;
+                text-align: center;
+                padding: 30px 20px;
+                margin: 50px 60px 50px 60px;
+                font-family: Georgia, serif;;
+            }
+            footer p {
+                margin: 10px 0;
+                letter-spacing: 2px;
+                font-size: 14px;
+                color: white;
+            !important;
+            }
+            .plain {
+                background: none;
+            !important;
+                border: none;
+            !important;
+                padding: 0;
+            !important;
+                color: deeppink;
+            !important;
+                text-decoration: none;
+            !important;
+                font-weight: normal;
+            !important;
+            }
+            footer a:hover {
+                color: white;
+                text-decoration: underline;
+            }
+            .logo {
+                position: sticky;
+                width: 100px;
+                height: 120px;
+                z-index: 1000;
+                opacity: 0.3;
+                border: 2px solid rgba(0, 0, 0, 1);
+                border-radius: 12px;
+            }
+            .site-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 20px;
+            }
+
+            @media (max-width: 768px) {
+                body {
+                    padding: 20px;
+                    margin: 0;
+                    box-sizing: border-box;
+                    height: 100%;
+                }
+                .site-header {
+                    box-sizing: border-box;
+                    max-width: 400px;
+                    margin: 0 auto;
+                }
+                h1 {
+                    flex: 1;
+                    font-size: 35px;
+                    white-space: nowrap;
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+                    letter-spacing: 2px;
+                    font-weight: 999;
+                    text-align: center;
+                    text-shadow: none;
+                    max-width: 100%;
+                }
+                h2 {
+                    flex: 1;
+                    font-size: 1.5rem;
+                }
+                footer {
+                    margin: 90px 50px 10px 50px;
+                    padding: 5px 5px;
+                }
+                .badge {
+                    width: 50px;
+                    height: 40px;
+                    margin-top: 5px;
+                }
+                .Mel-job {
+                    align-items: center;
+                    max-height: 15vh;
+                    overflow-y: auto;
+                    line-height: 1.2;
+                    font-size: 13px;
+                    letter-spacing: 1px;
+                    margin-top: 20px;
+                    text-shadow: none;
+                    border-radius: 12px;
+                    width: 90%;
+                    padding: 10px 10px;
+                }
+
+                .notes-bar {
+                    width: 100%;
+                    max-width: 400px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    position: fixed;
+                }
+
+                .mel-gal {
+                    width: 80%;
+                    height: 80%;
+                }
+
+                .logo {
+                    margin-top: -12px;
+                    margin-left: -25px;
+                }
+            }
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <img src="treble3.png" alt="Meltones Choir Logo" class="logo">
+</header>
+<h1>Mel Wilkinson<br>
+    Choir Leader</h1>
+<h2>About Mel...</h2>
+<div class="notes-bar">
+    <img src="musicnotes.avif" alt="music notes">
+</div>
+<div>
+    <img src="Melmain.jpg" alt="Mel herself" class="mel-gal">
+</div>
+<p class="Mel-job">
+    <strong class="mel-heading">ABOUT MEL</strong><br>
+    Choral conducting is Mel’s number one passion from The Meltones' fun modern vibe through to Holmes Chapel Singers Classical repertoire. She has 20 years of experience of choral conducting<br>
+    <strong class="mel-heading">OTHER WORK</strong><br>
+    Mel's other jobs include: children’s birthday party Entertainer and can be found doing her best impression of a Mad Scientist or Dance Teacher all over the North West.  She is a Fitness Instructor with her favourite class to teach being Spin. She is also a dance teacher at Hen Parties.
+    More recently she has become an End of Life Doula. This is working at the other end of the Life Spectrum. Doulas work with people at the end of their lives, putting the humanity back into the dying process. She recently started the Cheshire Chapter of the Threshold Choir which involves a small group of singers singing round someone's bedside.
+    Rather than being depressing work, Mel finds it life-affirming and uplifting being able to walk with people in the final stages of their lives. Mel's latest passion is coding and she built this website herself!
+</p>
+<a href="index.html" class="mel-but">Back to Home Page</a>
+<footer>
+    <p>&copy;2026 The Meltones. All rights reserved.</p>
+    <img src="logokate.jpg" alt="Meltones brand Logo" class="badge">
+</footer>
+</body>
+</html>

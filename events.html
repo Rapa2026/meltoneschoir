@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8">
+    <title>Mel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: rebeccapurple;
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, serif;
+            text-align: center;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url("musicnote1s.png");
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            z-index: -1;
+            opacity: 0.15;
+        }
+        h1 {
+            color: #000019;
+            font-family: Trebuchet MS sans-serif;
+            font-size: 90px;
+            font-weight: bold;
+            text-shadow: 4px 4px 4px rgb(80, 80, 80, 1);
+            z-index: 5;
+            position: relative;
+            margin-top: -60px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .mel-but {
+            padding: 14px 18px;
+            font-size: 18px;
+            background: #000019;
+            z-index: 1;
+            position: relative;
+            color: deeppink;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 40px;
+            margin-left: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-family: Georgia, serif;
+        }
+        .mel-but:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+        .events-accordion {
+            max-width: 700px;
+            z-index: 1;
+            background: black;
+            margin: 20px auto 40px auto;
+            border: 8px solid #efd736;
+            padding: 16px 16px 16px 16px;
+            border-radius: 12px;
+            font-family: Georgia, serif;
+        }
+        .event-item {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .event-item:hover {
+            background: #6a4a9c;
+            cursor: pointer;
+        }
+        .event-title {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f2f2f2;
+            border: none;
+            padding: 12px 16px;
+            font-family: Georgia, serif;
+            font-size: 20px;
+            font-weight: 540;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .event-title .icon {
+            font-weight: bold;
+            font-size: 20px;
+            transition: transform 0.2s;
+        }
+        .event-title:hover {
+            background: #e0e0e0;
+        }
+        .event-images {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: white;
+            padding: 0 16px;
+            border-radius: 0 0 6px 6px;
+        }
+        .event-images.open {
+            display: block;
+        }
+        .event-images.active .event-images {
+            max-height: 500px;
+            padding: 16px;
+        }
+        .ev-img {
+                max-width: 500px;
+                width: 100%;
+                display: block;
+                z-index: 2;
+                position: relative;
+                margin: 20px auto;
+                border: 2px solid #ddd;
+                border-radius: 12px;
+            }
+            footer {
+                background-color: rgba(0, 0, 25, 0.5);
+                color: white;
+                text-align: center;
+                padding: 5px 5px;
+                margin: 50px 50px 40px 50px;
+                font-family: Georgia, serif;
+            }
+            footer p {
+                margin: 10px 0;
+                letter-spacing: 2px;
+                font-size: 14px;
+                color: white; !important;
+            }
+            .plain {
+                background: none; !important;
+                border: none; !important;
+                padding: 0;!important;
+                color: deeppink; !important;
+                text-decoration: none; !important;
+                font-weight: normal; !important;
+            }
+            footer a:hover {
+                color: white;
+                text-decoration: underline;
+            }
+            .logo {
+                position: sticky;
+                width: 100px;
+                height: 120px;
+                z-index: 1000;
+                opacity: 0.3;
+                border: 2px solid rgba(0, 0, 0, 1);
+                border-radius: 12px;
+            }
+            .site-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 20px;
+            }
+        .badge {
+            position: sticky;
+            width: 100px;
+            height: 80px;
+            z-index: 9999;
+            border: 2px solid white;
+            border-radius: 12px;
+            opacity: 1;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 60px;
+                text-align: center;
+                font-weight: 999;
+                text-shadow: none;
+                margin-top: 10px;
+            }
+            .badge {
+                width: 50px;
+                height: 40px;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+    <img src="treble3.png" alt="Meltones Choir Logo" class="logo">
+</header>
+<h1>Events!</h1>
+<h2>Places we have sung...</h2>
+<div class="events-accordion">
+
+<div class="event-item">
+    <button class="event-title">
+        <span>Christmas at KLT</span>
+        <span class="icon">+</span>
+    </button>
+    <div class="event-images">
+    <img src="eventklt1.jpg" alt="At KLT" class="ev-img">
+    <img src="eventklt2.jpg" alt="At KLT" class="ev-img">
+    <img src="eventklt3.jpg" alt="At KLT" class="ev-img">
+    </div>
+</div>
+<div class="event-item">
+     <button class="event-title">
+    <span>Concert with HCS</span>
+    <span class="icon">+</span>
+    </button>
+     <div class="event-images">
+    <img src="eventsholmeschapel.jpg" alt="Concert with HCS" class="ev-img">
+    </div>
+ </div>
+ <div class="event-item">
+     <button class="event-title">
+     <span>Meal out!</span>
+     <span class="icon">+</span>
+     </button>
+     <div class="event-images">
+     <img src="eventmealout.jpg" alt="Meal out!" class="ev-img">
+     </div>
+ </div>
+
+ <div class="event-item">
+     <button class="event-title">
+     <span>Singing at Mette's House!</span>
+     <span class="icon">+</span>
+     </button>
+     <div class="event-images">
+     <img src="eventsmettes.jpg" alt="At Mette's" class="ev-img">
+     <img src="eventsmettes2.jpg" alt="At Mette's" class="ev-img">
+     </div>
+ </div>
+</div>
+<a href="index.html" class="mel-but">Back to Home Page</a>
+<footer>
+    <p>&copy;2026 The Meltones. All rights reserved.</p>
+    <img src="logokate.jpg" alt="Meltones brand Logo" class="badge">
+</footer>
+<script>
+    console.log('Found buttons:', document.querySelectorAll('.event-title').length);
+    document.querySelectorAll('.event-title').forEach(button => {
+        button.addEventListener('click', () => {
+            const item =button.parentElement;
+            const imagesDiv = button.nextElementSibling;
+            const icon = button.querySelector('.icon');
+
+            item.classList.toggle('active');
+
+            if (item.classList.contains('active')) {
+            imagesDiv.style.maxHeight = imagesDiv.scrollHeight + "px";
+            if(icon) icon.textContent = '-';
+            } else {
+            imagesDiv.style.maxHeight = "0";
+            if (icon) icon.textContent = '+';
+            }
+        });
+    });
+</script>
+</body>
+</html>
+

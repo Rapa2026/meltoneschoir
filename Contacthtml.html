@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="data:,">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us:</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #efd736;
+            box-sizing: border-box;
+            font-family: Georgia, serif;
+            text-align: center;
+        }
+        h1 {
+            color: #000019;
+            font-family: Trebuchet MS sans-serif;
+            font-size: 90px;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            text-shadow: 4px 4px 4px rgb(80, 80, 80, 1);
+            z-index: 5;
+            position: relative;
+        }
+        .mel-con {
+            padding: 14px 18px;
+            font-family: Georgia, serif;
+            font-size: 18px;
+            background: #000019;
+            z-index: 1;
+            position: relative;
+            color: deeppink;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            margin-left: 8px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .mel-con:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+        .notes-bar {
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .notes-bar img {
+            width: 100%;
+            height: 100vh;
+            display: block;
+            opacity: 0.1;
+            z-index: 1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+        .con-des {
+        font-family: Georgia, serif;
+        font-size: 18px;
+        letter-spacing: 3px;
+        line-height: 1.4;
+        font-weight: bold;
+        color: #02023c;
+        max-width: 700px;
+        padding: 40px;
+        background: #dddddd;
+        z-index: 1;
+        position: relative;
+        width: 100%;
+        margin: 40px auto 40px auto;
+        text-align: center;
+        display: block;
+        text-transform: none;
+        text-shadow: 8px 8px 4px hsl(0 0% 32% / 0.5);
+        border-radius: 12px;
+        }
+        .con-des a {
+        text-decoration: none;
+        color: #02023c;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        }
+        .con-des a:hover {
+            color: #0a6317;
+            letter-spacing: 4px;
+        }
+        footer {
+            background-color: rgba(0, 0, 25, 0.5);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin: 60px 60px 50px 60px;
+            font-family: Georgia, serif;
+        }
+        footer p {
+            margin: 10px 0;
+            letter-spacing: 2px;
+            font-size: 14px;
+            color: white; !important;
+        }
+        .plain {
+            background: none; !important;
+            border: none; !important;
+            padding: 0;!important;
+            color: deeppink; !important;
+            text-decoration: none; !important;
+            font-weight: normal; !important;
+            font-family: Georgia, serif
+        }
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        .logo {
+            position: sticky;
+            width: 90px;
+            height: 100px;
+            z-index: 1000;
+            opacity: 0.3;
+            border: 2px solid rgba(0, 0, 0, 1);
+            border-radius: 12px;
+        }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 20px;
+        }
+        .badge {
+            position: sticky;
+            z-index: 1000;
+            border: 2px solid white;
+            border-radius: 12px;
+            width: 100px;
+            height: 80px;
+            margin-top: 5px;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 60px;
+                text-align: center;
+                font-weight: 999;
+                text-shadow: none;
+            }
+            .con-des {
+                max-width: 70%;
+                align-items: center;
+                font-size: 12px;
+                text-shadow: none;
+                margin-top: 30px;
+                margin-bottom: 40px;
+            }
+            footer {
+                margin: 120px 50px 10px 50px;
+                padding: 5px 5px;
+            }
+            .badge {
+                width: 50px;
+                height: 40px;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <img src="treble3.png" alt="Meltones Choir Logo" class="logo">
+</header>
+<h1>Contact us:</h1>
+<div class="notes-bar">
+    <img src="musicnotes.avif" alt="music notes">
+</div>
+<p class="con-des">
+    Email: <a href="mailto:themeltones2008@gmail.com">themeltones2008@gmail.com</a><br>
+    <br>
+    Tel: <a href="tel:07803705849">07803 705849</a><br>
+    <br>
+    New members always welcome!<br>
+    <br>
+    We look forward to hearing from you!
+</p>
+<a href="index.html" class="mel-con">Back to Home Page</a>
+<footer>
+    <p>&copy;2026 The Meltones. All rights reserved.</p>
+    <img src="logokate.jpg" alt="Meltones brand Logo" class="badge">
+</footer>
+</body>
+</html>

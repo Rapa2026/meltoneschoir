@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="data:,">
+    <title>Cake!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #3dc5c5;
+            text-align: center;
+            background-image: inherit;
+        }
+        h1 {
+            color: #000019;
+            font-family: Trebuchet MS sans-serif;
+            font-size: 80px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            text-shadow: 4px 4px 4px rgb(80, 80, 80, 1);
+            z-index: 5;
+            position: relative;
+            margin-top: 10px;
+        }
+        h2 {
+            font-size: 22px;
+            font-family: Georgia, serif;
+            letter-spacing: 2px;
+            color: black;
+        }
+        .site-button {
+            padding: 14px 18px;
+            font-size: 18px;
+            background: #000019;
+            z-index: 1;
+            position: relative;
+            color: deeppink;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            margin-left: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-family: Georgia, serif;
+        }
+        .site-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+        .cake-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 30px auto;
+            z-index: 5;
+            position: relative;
+        }
+        .cake-gallery img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 8px solid white;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .cake-gallery .flip-card:nth-child(odd) {
+            transform: rotate(-2deg);
+        }
+        .cake-gallery .flip-card:nth-child(even) {
+            transform: rotate(2deg);
+        }
+        .cake-gallery .flip-card:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease;
+        }
+        .notes-bar {
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .notes-bar img {
+            width: 100%;
+            height: 100vh;
+            display: block;
+            opacity: 0.1;
+            z-index: 1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+        .cake-des {
+            font-family: Georgia, serif;
+            font-size: 18px;
+            letter-spacing: 3px;
+            font-weight: 535;
+            line-height: 1.4;
+            color: black;
+            max-width: 700px;
+            padding: 40px;
+            background: #dddddd;
+            z-index: 1;
+            position: relative;
+            width: 100%;
+            margin: 20px auto 40px auto;
+            text-align: left;
+            display: block;
+            text-transform: none;
+            border-radius: 12px;
+        }
+        .flip-card {
+            background-color: transparent;
+            width: 250px;
+            height: 250px;
+            perspective: 1000px;
+            font-family: Georgia, serif;
+        }
+        .flip-card-inner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            border: 6px solid #333;
+            border-radius: 16px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            backface-visibility: hidden;
+        }
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .flip-card-back {
+            background: white;
+            color: #000019;
+            transform: rotateY(180deg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Georgia, serif;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        footer {
+            background-color: rgba(0, 0, 25, 0.5);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin: 50px 60px 50px 60px;
+            font-family: Georgia, serif;
+        }
+        footer p {
+            margin: 10px 0;
+            letter-spacing: 2px;
+            font-size: 14px;
+            color: white; !important;
+        }
+        .plain {
+            background: none; !important;
+            border: none; !important;
+            padding: 0;!important;
+            color: deeppink; !important;
+            text-decoration: none; !important;
+            font-weight: normal; !important;
+        }
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 20px;
+        }
+        .site-header img.logo {
+            position: sticky;
+            width: 100px;
+            height: 120px;
+            z-index: 1000;
+            opacity: 0.3;
+            border: 2px solid rgba(0, 0, 0, 1);
+            border-radius: 12px;
+        }
+        .badge {
+            position: sticky;
+            width: 100px;
+            height: 80px;
+            z-index: 1000;
+            border: 2px solid white;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<header class="site-header">
+    <img src="treble3.png" alt="The Meltone's Choir Logo" class="logo">
+</header>
+<h1>Weekly Cakes Baked by the Choir!!</h1>
+<h2>Some images of the wonderful home-made baking we have enjoyed over the years!</h2>
+<div class="notes-bar">
+    <img src="musicnotes.avif" alt="music notes">
+</div>
+<div class="cake-gallery">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="roundcake.jpg" alt="cake by Kate">
+            </div>
+            <div class="flip-card-back">
+                <h3>Cake by Kate!</h3>
+                <p>Her cakes are delicious!</p>
+            </div>
+        </div>
+    </div>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="cakejo.jpg" alt="cake by Jo">
+                </div>
+                <div class="flip-card-back">
+                    <h3>Baked by Jo!</h3>
+                    <p>Delicious!</p>
+                </div>
+            </div>
+        </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="maltesercake.jpg" alt="cake by Kate">
+            </div>
+            <div class="flip-card-back">
+                <h3>Cake by Kate!</h3>
+                <p>Her cakes are to die for!</p>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="cakemel45.jpg" alt="cake by Helen">
+            </div>
+            <div class="flip-card-back">
+                <h3>Cake by Helen!</h3>
+                <p>Her cakes are divine for special occasions!</p>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="cake5.jpg" alt="cake by Alison">
+            </div>
+            <div class="flip-card-back">
+                <h3>Cake by Alison!</h3>
+                <p>Her cakes are home baking at it's finest!</p>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="cake6.jpg" alt="10 year anniversary cake">
+            </div>
+            <div class="flip-card-back">
+                <h3>Celebrating 10 years of the choir!</h3>
+                <p>Bought by Dorothy</p>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="cake7.jpg" alt="cake for Janice">
+            </div>
+            <div class="flip-card-back">
+                <h3>Baked by Eve!</h3>
+                <p>To celebrate Jan's Birthday!</p>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+            <img src="cakemette.jpg" alt="carrot cake by Mette">
+            </div>
+            <div class="flip-card-back">
+                <h3>Baked by Mette!</h3>
+                <p>The standard we all aspire to!</p>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="cake8.jpg" alt="mystery cake">
+            </div>
+            <div class="flip-card-back">
+                <h3>What will be next!?</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<p class="cake-des">
+   The tradition of baking cakes for the break is as old as time itself! lol and no one
+    remembers quite how it started. At the beginning of each term Mette comes up with a
+    cake rota and people take it in turns to bake. We put a small donation in the tin and
+    at the end of the term the money goes to a charity.
+</p>
+<a href="index.html" class="site-button">Back to Home Page</a>
+<footer>
+    <p>&copy;2026 The Meltones. All rights reserved.</p>
+    <img src="logokate.jpg" alt="Meltones brand Logo" class="badge">
+</footer>
+</div>
+</body>
+</html>

@@ -481,7 +481,7 @@ enquireForm.addEventListener('submit', async (e) => {
 
     const data = Object.fromEntries(new FormData(enquireForm).entries());
 
-    const res = await fetch('https://carton-grazing-envision.ngrok-free.dev/enquire', {
+    const res = await fetch('/enquire', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(data)

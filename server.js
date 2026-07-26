@@ -3,11 +3,13 @@ console.log('ENV CHECK:', process.env.EMAIL_USER,process.env.EMAIL_PASS ? 'PASS 
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT ||3000;
 
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
+app.use(express.static(path.join(_dirname)));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -17,7 +19,8 @@ secure: false,
 auth: {
 user: process.env.EMAIL_USER,
 pass: process.env.EMAIL_PASS
-},
+app.get('/', (req, res) => {
+res.sendFile(path.join(_dirname, 'index.html'));
 });
 
 app.post('/enquire', async (req, res) => {

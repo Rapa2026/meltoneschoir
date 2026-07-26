@@ -9,7 +9,7 @@ const PORT = process.env.PORT ||3000;
 
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
-app.use(express.static(path.join(_dirname)));
+app.use(express.static(path.join(__dirname)));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -18,10 +18,11 @@ port: 587,
 secure: false,
 auth: {
 user: process.env.EMAIL_USER,
-pass: process.env.EMAIL_PASS
+pass: process.env.EMAIL_PASS,
+}  
+});  
 app.get('/', (req, res) => {
-res.sendFile(path.join(_dirname, 'index.html'));
-});
+res.sendFile(path.join(__dirname, 'index.html'));
 
 app.post('/enquire', async (req, res) => {
 const { name, email, message } = req.body;

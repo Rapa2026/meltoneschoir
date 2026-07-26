@@ -21,9 +21,9 @@ user: process.env.EMAIL_USER,
 pass: process.env.EMAIL_PASS,
 }  
 });  
-app.get('/', (req, res) => {
+app.get('/', (req, res) => {   
 res.sendFile(path.join(__dirname, 'index.html'));
-
+}); 
 app.post('/enquire', async (req, res) => {
 const { name, email, message } = req.body;
 console.log('Form data received:', name, email, message);

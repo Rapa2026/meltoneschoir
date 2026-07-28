@@ -488,7 +488,6 @@ enquireForm.addEventListener('submit', async (e) => {
     });
 
     const result = await res.json();
-    alert(result.message);//"Thanks! We got it"
     enquireModal.style.display = 'none';//close modal
     enquireForm.reset();//clear fields
 })

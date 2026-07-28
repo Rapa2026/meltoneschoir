@@ -1,5 +1,5 @@
 require('dotenv').config();
-console.log('ENV CHECK:', process.env.RESEND_API_KEY ? 'RESEND KEY SET : 'RESEND KEY MISSING');
+console.log('ENV CHECK:', process.env.RESEND_API_KEY ? 'RESEND KEY SET' : 'RESEND KEY MISSING');
 const express = require('express');
 const cors = require('cors');
 const path = require('path');

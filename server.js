@@ -36,7 +36,7 @@ console.log("RESEND ERROR:", error);
 return res.status(500).json({ error: "Email failed to send" });
 }  
 console.log("EMAIL SENT:", data.id);
-res.status(200).json({ success: "Message sent!"'});
+res.status(200).json({ success: "Message sent!"});
 } catch (err) {
 console.error("CATCH ERROR:", err);
 return res.status(500).json({ error: "Something went wrong" });

@@ -1,10 +1,12 @@
 require('dotenv').config();
-console.log('ENV CHECK:', process.env.EMAIL_USER,process.env.EMAIL_PASS ? 'PASS SET' : 'PASS MISSING');
+console.log('ENV CHECK:', process.env.RESEND_API_KEY ? 'RESEND KEY SET : 'RESEND KEY MISSING');
 const express = require('express');
-const nodemailer = require('nodemailer');
 const cors = require('cors');
 const path = require('path');
+const { Resend } = require('resend');
+
 const app = express();
+const resend = new Resend(process.env.RESEND_API_KEY);
 const PORT = process.env.PORT ||10000;
 
 app.use(cors());
@@ -12,40 +14,32 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname)));
 app.use(express.json());
 
-const transporter = nodemailer.createTransport({
-host: 'smtp.gmail.com',
-port: 587,
-secure: false,
-auth: {
-user: process.env.EMAIL_USER,
-pass: process.env.EMAIL_PASS,
-},
-tls: {
-rejectUnauthorized: false
-}  
-});  
 app.get('/', (req, res) => {   
 res.sendFile(path.join(__dirname, 'index.html'));
 }); 
+
 app.post('/enquire', async (req, res) => {
 const { name, email, message } = req.body;
 console.log('Form data received:', name, email, message);
 
 try {
-const info = await transporter.sendMail({
-from: process.env.EMAIL_USER,
-to: process.env.TO_EMAIL,
+const { data, error } = await resend.emails.send({
+from: 'Meltones Website <onboarding@resend.dev>',
+to: ['themeltones2008@gmail.com'],
+reply_to:email,
 subject: `New Enquiry from ${name}`,
-text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-});
-console.log('Email sent:', info.response); 
-res.json({ success: true, message: 'Thanks! We got it'});
-} catch (err) {
-console.error('Email failed:', err);
-res.status(500).json({ success: false, message: 'Email failed'});
-}
+html: `<h3>New Contact Form</h3><p><b>Name:</b> ${name}</p><p><b>Email:</b> ${email}</p><p><b>Message:</b> ${message}</p>,`
 });
 
-app.listen(PORT, '0.0.0.0', () => { 
-  console.log(`Server running on port ${PORT}`)
-})  
+if (error) {
+console.log("RESEND ERROR": error); 
+return res.status(500).json({ error: "Email failed to send" });
+}  
+console.error("EMAIL SENT:", data.id);
+res.status(200).json({ success: "Message sent!"'});
+} catch (err) {
+console.error("CATCH ERROR:", err);
+return res.status(500).json({ error: "Something went wrong" });
+});
+
+

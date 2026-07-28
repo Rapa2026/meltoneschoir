@@ -25,7 +25,7 @@ console.log('Form data received:', name, email, message);
 try {
 const { data, error } = await resend.emails.send({
 from: 'Meltones Website <onboarding@resend.dev>',
-to: ['themeltones2008@gmail.com'],
+to: ['levymelanie@hotmail.com'],
 reply_to:email,
 subject: `New Enquiry from ${name}`,
 html: `<h3>New Contact Form</h3><p><b>Name:</b> ${name}</p><p><b>Email:</b> ${email}</p><p><b>Message:</b> ${message}</p>,`

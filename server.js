@@ -40,6 +40,6 @@ res.status(200).json({ success: "Message sent!"});
 } catch (err) {
 console.error("CATCH ERROR:", err);
 return res.status(500).json({ error: "Something went wrong" });
-});
+}
 
 

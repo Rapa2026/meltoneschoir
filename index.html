@@ -24,11 +24,10 @@
             margin-top: 0;
             margin-bottom: 0;
         }
-        p {
+        h2 {
             font-family: Trebuchet MS sans-serif;
             font-size: 34px;
             letter-spacing: 4px;
-            text-shadow: 2px 2px 0 #000, 4px 4px 0 white;
             color: black;
             text-align: center;
             font-weight: 900;
@@ -59,20 +58,21 @@
             font-size: 18px;
             letter-spacing: 3px;
             line-height: 1.4;
-            color: #02023c;
-            width: 100%;
+            color: black;
+            width: 85%;
             padding: 15px 20px;
             background: #dddddd;
             z-index: 1;
             position: relative;
-            margin: 20px 0;
-            text-align: left;
+            margin: 20px auto;
+            text-align: center;
             display: block;
             text-transform: none;
             box-sizing: border-box;
             border-radius: 12px;
             font-weight: 540;
             text-shadow: none;
+            align-items: center;
         }
         .mel-heading {
             text-decoration: underline;
@@ -80,25 +80,25 @@
             text-underline-offset: 4px;
         }
         #sayBtn {
+            display: block;
             padding: 18px 30px;
             font-size: 20px;
             background: #000019;
             z-index: 1;
             position: relative;
-            color: #18e639;
+            color: white;
             border: 2px solid white;
             border-radius: 8px;
             font-weight: 999;
             cursor: pointer;
-            margin-top: 20px;
-            margin-left: 8px;
+            margin: 30px auto 0 auto;
             text-align: center;
             font-family: Georgia, serif;
         }
         #sayBtn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-            background: #00fd2a;
+            background: #efd736;
             color: black;
             border: 4px solid black;
             font-size: 22px;
@@ -278,12 +278,13 @@
             padding: 8px 100px;
             position: relative;
             justify-content: center;
+            box-sizing: border-box;
         }
         .site-header .logo {
             position: absolute;
             left: 15px;
-            transform: translateY(-50%);
-            margin-top: 65px;
+            transform: translateY(-50px);
+            margin-top: 55px;
         }
         .site-header h1 {
             display: block;
@@ -301,34 +302,75 @@
             border-radius: 12px;
         }
         @media (max-width: 768px) {
+            body {
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+                padding: 0;
+            }
+            .site-header {
+                display: flex;
+                position: absolute;
+                padding: 8px 20px;
+                z-index: 10;
+                width: 100%;
+                background: transparent;
+                top: 0;
+                left: 0;
+                align-items: center;
+                text-align: center;
+            }
+            .site-header .logo {
+                margin-top: 50px;
+                margin-left: -300px;
+                height: 60px;
+                width: 50px;
+                position: static;
+            }
+            .site-header h1 {
+                color: white;
+                font-size: 24px;
+                text-align: center;
+                position: absolute;
+                margin-top: 50px;
+            }
+            h2 {
+                color: white;
+                z-index: 3000;
+            }
+            .page-content {
+                padding-top: 0;
+                margin: 0;
+            }
             .img-wrapper {
-                padding: 10px;
-                max-width: 100%;
+                padding: 0;
+                margin: 0;
+                width: 100%;
             }
             .img-wrapper img {
                 width: 100%;
-                height: auto;
                 display: block;
+                object-fit: cover;
             }
             .mel-img {
-                max-width: 100%;
-                margin-top: 20px;
+                margin-top: -150px;
+                display: block;
+                width: 100%;
+                padding: 0;
+                border-radius: 0;
+                height: 400px
             }
             .mel-des {
-                max-height: 20vh;
+                max-height: 25vh;
                 overflow-y: auto;
                 line-height: 1.2;
-                font-size: 13px;
+                font-size: 18px;
                 letter-spacing: 1px;
-                margin-top: 60px;
-                text-shadow: none;
-                border-radius: 12px;
-            }
-            p {
-                font-size: 1rem;
-                font-weight: bold;
-                margin-bottom: 15px;
                 margin-top: 5px;
+                margin-bottom: 40px;
+                text-shadow: none;
+                background: none;
+                font-weight: 999;
             }
             #sayBtn {
                 padding: 10px;
@@ -337,7 +379,6 @@
             }
             .menu-btn {
                 padding: 8px 10px;
-                display: flex;
                 font-size: 13px;
                 line-height: 1;
                 flex-shrink: 0;
@@ -345,8 +386,10 @@
                 align-items: center;
                 justify-content: space-between;
                 gap: 8px;
-                margin-top: -10px;
+                margin-top: 10px;
+                margin-bottom: 20px;
                 font-family: Georgia, serif;
+                position: absolute;
             }
             .hamburger {
                 font-size: 16px;
@@ -354,7 +397,7 @@
             }
             footer {
                 padding: 5px 5px;
-                margin: 10px 50px 40px 50px;
+                margin: 20px 50px 40px 50px;
             }
             footer p {
                 font-size: 12px;
@@ -364,31 +407,12 @@
                 height: 40px;
                 margin-top: 5px;
             }
-            .site-header {
-                padding: 15px 10px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 8px;
-                margin-top: 10px;
-                margin-bottom: 5px;
-            }
-            .site-header .logo {
-                width: 60px;
-                height: 60px;
-                flex-shrink: 0;
-                margin-top: 1px;
-                margin-left: -5px;
-            }
-            .site-header h1 {
-                flex: 1;
-                font-size: 35px;
-                white-space: nowrap;
-                margin-top: 50px;
-                margin-bottom: 5px;
-                letter-spacing: 2px;
+            .mel-heading {
+                text-decoration: underline;
                 font-weight: 999;
-                text-align: center;
+                text-underline-offset: 2px;
+                color: white;
+                margin-bottom: 10px;
             }
             .dropdown {
                 right: 12px;
@@ -397,7 +421,7 @@
                 border-radius: 12px;
                 z-index: 1000;
                 background: black;
-                position: fixed;
+                position: absolute;
                 display: none;
                 min-width: 160px;
             }
@@ -410,34 +434,38 @@
 <body>
 <img src="musicnote1s.png" alt="music notes background" class="notes-right">
 
-    <header class="site-header">
-        <img src="treble3.png" alt="Meltones Choir Logo" class="logo">
-        <h1>The Meltones</h1>
-        <button class="menu-btn" onclick="toggleMenu()">
+<header class="site-header">
+    <img src="treble3.png" alt="Meltones Choir Logo" class="logo">
+    <h1>The Meltones</h1>
+    <button class="menu-btn" onclick="toggleMenu()">
         Menu <span class="hamburger"></span>
     </button>
-    </header>
+</header>
+
+<main class="page-content">
+    <div class="img-wrapper">
+        <h2>Musical Director, Mel Wilkinson</h2>
+        <img src="meltones594956167_122201482514290746_4899057231579312763_n.jpg" alt="The Meltones" class="mel-img">
+    </div>
     <div id="dropdown" class="dropdown">
         <a href="index.html">Home</a>
         <a href="melhtml.html">About Mel</a>
         <a href="events.html">Events</a>
         <a href="cakehtml.html">Cake</a>
         <a href="Contacthtml.html">Contact</a>
-        </div>
-<p>Musical Director, Mel Wilkinson</p>
-<div class="img-wrapper">
-
-    <img src="meltones594956167_122201482514290746_4899057231579312763_n.jpg" alt="The Meltones" class="mel-img">
-    <p class="mel-des">
-        <strong class="mel-heading">WHO WE ARE</strong><br>
-        The Meltones’ origins were at Sir John Deane’s College Adult Education Department back in 2008.
-        It was Mel’s first choir that she led, so it holds a special place in her heart. There are still some of the original members singing all these years later.<br>
-        <strong class="mel-heading">MUSIC WE SING</strong><br>
-        We are first and foremost about the joy of singing. However, we strive for a good standard and sing in three-part harmony, Musical Theatre, Pop and a little bit of Classical too!
-        If you are interested in joining us or coming along for a taster session, please click below and we will be in contact.
-    </p>
-    <button id="sayBtn">Get in touch!</button>
-</div>
+    </div>
+    <section class="welcome-section">
+        <p class="mel-des">
+            <strong class="mel-heading">WHO WE ARE</strong><br>
+            The Meltones’ origins were at Sir John Deane’s College Adult Education Department back in 2008.
+            It was Mel’s first choir that she led, so it holds a special place in her heart. There are still some of the original members singing all these years later.<br>
+            <strong class="mel-heading">MUSIC WE SING</strong><br>
+            We are first and foremost about the joy of singing. However, we strive for a good standard and sing in three-part harmony, Musical Theatre, Pop and a little bit of Classical too!
+            If you are interested in joining us or coming along for a taster session, please click below and we will be in contact.
+        </p>
+        <button id="sayBtn">Get in touch!</button>
+    </section>
+</main>
 <!--MODAL-->
 <div id="enquireModal" class="modal">
     <div class="modal-content">
@@ -476,22 +504,21 @@
     const enquireModal = document.getElementById('enquireModal');
     const enquireBtn = document.getElementById('sayBtn');
     const enquireForm = document.getElementById('enquireForm');
-enquireForm.addEventListener('submit', async (e) => {
-    e.preventDefault();//stops page refresh
+    enquireForm.addEventListener('submit', async (e) => {
+        e.preventDefault();//stops page refresh
 
-    const data = Object.fromEntries(new FormData(enquireForm).entries());
+        const data = Object.fromEntries(new FormData(enquireForm).entries());
 
-    const res = await fetch('https://carton-grazing-envision.ngrok-free.dev/enquire', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify(data)
-    });
+        const res = await fetch('/enquire', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify(data)
+        });
 
-    const result = await res.json();
-    alert(result.message);//"Thanks! We got it"
-    enquireModal.style.display = 'none';//close modal
-    enquireForm.reset();//clear fields
-})
+        const result = await res.json();
+        enquireModal.style.display = 'none';//close modal
+        enquireForm.reset();//clear fields
+    })
     //1. Enquire BUTTON = just open + shake
     enquireBtn.addEventListener('click', function(e) {
         e.preventDefault();

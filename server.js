@@ -17,7 +17,7 @@ app.use(express.json());
 app.get('/', (req, res) => {   
 res.sendFile(path.join(__dirname, 'index.html'));
 }); 
-
+app.get('/sitemap.xml', (req, res) => res.sendFile(path.join(__dirname, 'sitemap.xml')));
 app.post('/enquire', async (req, res) => {
 const { name, email, message } = req.body;
 console.log('Form data received:', name, email, message);
